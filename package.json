@@ -1,0 +1,37 @@
+{
+  "name": "audio-buffer-from",
+  "version": "1.0.0",
+  "description": "Create AudioBuffer from any source",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/audiojs/audio-buffer-from.git"
+  },
+  "keywords": [
+    "audio",
+    "audiojs",
+    "dsp",
+    "web-audio-api"
+  ],
+  "author": "Dima Yv <df.creative@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/audiojs/audio-buffer-from/issues"
+  },
+  "homepage": "https://github.com/audiojs/audio-buffer-from#readme",
+  "dependencies": {
+    "audio-buffer": "^4.0.1",
+    "audio-context": "^1.0.1",
+    "is-audio-buffer": "^1.0.11",
+    "is-buffer": "^1.1.5",
+    "is-plain-obj": "^1.1.0"
+  },
+  "devDependencies": {
+    "ndarray": "^1.0.18",
+    "ndsamples": "^1.0.0",
+    "tape": "^4.6.3"
+  }
+}
