@@ -1,4 +1,4 @@
-# audio-buffer-from [![Build Status](https://travis-ci.org/audiojs/audio-buffer-from.svg?branch=master)](https://travis-ci.org/audiojs/audio-buffer-from) [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
+# audio-buffer-from [![Build Status](https://travis-ci.org/audiojs/audio-buffer-from.svg?branch=master)](https://travis-ci.org/audiojs/audio-buffer-from) [![unstable](https://img.shields.io/badge/stability-unstable-green.svg)](http://github.com/badges/stability-badges)
 
 Create [AudioBuffer](https://github.com/audiojs/audio-buffer) from any source.
 
@@ -18,16 +18,17 @@ var abuf2 = createBuffer(1024, 2)
 //buffer from data with bound audio context
 var abuf3 = createBuffer(floatArray, {context: audioContext})
 
-//empty 1-sample mono buffer
+//empty 1-sample mono buffer with default context
 var abuf4 = createBuffer()
 
 //0-length no-context buffer
+var abuf5 = createBuffer(0)
 
 //from pcm data
-var abuf5 = createBuffer(new Uint8Array([0, 0, 255, 255]), 'interleaved 96000')
+var abuf6 = createBuffer(new Uint8Array([0, 0, 255, 255]), 'interleaved 96000')
 
 //from data-uri
-var abuf6 = createBuffer('data:application/octet-stream;base64,AP8A/w==', 'uint8')
+var abuf7 = createBuffer('data:application/octet-stream;base64,AP8A/w==', 'uint8')
 
 //from base64 string
 var abuf7 = createBuffer('AAAAAAAAAAAAAIA/AACAPw==', 'float32 stereo planar')
