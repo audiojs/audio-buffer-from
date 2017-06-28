@@ -32,6 +32,9 @@ var abuf7 = createBuffer('data:application/octet-stream;base64,AP8A/w==', 'uint8
 
 //from base64 string
 var abuf7 = createBuffer('AAAAAAAAAAAAAIA/AACAPw==', 'float32 stereo planar')
+
+//from node Buffer
+var abuf8 = createBuffer(Buffer.from([0, 255, 0, 127]), 'interleaved')
 ```
 
 ## API
