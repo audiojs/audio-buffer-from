@@ -1,6 +1,6 @@
 {
   "name": "audio-buffer-from",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create AudioBuffer from any source",
   "main": "index.js",
   "scripts": {
