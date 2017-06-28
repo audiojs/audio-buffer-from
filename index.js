@@ -12,6 +12,7 @@ var getContext = require('audio-context')
 var convert = require('pcm-convert')
 var extend = require('object-assign')
 var format = require('audio-format')
+var str2ab = require('string-to-arraybuffer')
 
 module.exports = function createBuffer (source, options) {
 
@@ -25,10 +26,10 @@ module.exports = function createBuffer (source, options) {
 		options = {format: options}
 	}
 	//{}
-	else if (options == null) {
+	else if (options === undefined) {
 		if (isObj(source)) {
 			options = source
-			source = null
+			source = undefined
 		}
 		else {
 			options = {}
@@ -37,8 +38,8 @@ module.exports = function createBuffer (source, options) {
 
 
 	//detect options
-	channels = options.channels
-	sampleRate = options.sampleRate
+	channels = options.channels || options.numberOfChannels || options.channelCount
+	sampleRate = options.sampleRate || options.rate
 	if (options.format) format = getFormat(options.format)
 
 	if (format) {
@@ -99,7 +100,12 @@ module.exports = function createBuffer (source, options) {
 	//TypedArray, Buffer, DataView etc, ArrayBuffer, Array etc.
 	//NOTE: node 4.x+ detects Buffer as ArrayBuffer view
 	else {
+		if (typeof source === 'string') {
+			source = str2ab(source)
+		}
+
 		if (!format) format = {}
+		if (!channels) channels = 1
 		source = convert(source, format, 'float32 planar')
 
 		length = Math.floor(source.length / channels);
@@ -111,7 +117,7 @@ module.exports = function createBuffer (source, options) {
 
 	//create buffer of proper length
 	var audioBuffer = new AudioBuffer(options.context === null ? null : options.context || getContext(), {
-		length: length,
+		length: length || 1,
 		numberOfChannels: channels || 1,
 		sampleRate: sampleRate || 44100
 	})

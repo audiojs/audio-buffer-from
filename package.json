@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/audiojs/audio-buffer-from#readme",
   "dependencies": {
+    "arraybuffer-to-string": "^1.0.1",
     "audio-buffer": "^4.0.1",
     "audio-context": "^1.0.1",
     "audio-format": "^2.0.0",
@@ -32,11 +33,15 @@
     "is-buffer": "^1.1.5",
     "is-plain-obj": "^1.1.0",
     "object-assign": "^4.1.1",
-    "pcm-convert": "^1.5.0"
+    "pcm-convert": "^1.5.1",
+    "string-to-arraybuffer": "^1.0.0"
   },
   "devDependencies": {
+    "atob-lite": "^2.0.0",
+    "create-data-uri": "^1.1.0",
     "ndarray": "^1.0.18",
     "ndsamples": "^1.0.0",
-    "tape": "^4.6.3"
+    "tape": "^4.6.3",
+    "wav-encoder": "^1.1.0"
   }
 }

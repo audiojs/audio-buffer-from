@@ -35,7 +35,7 @@ Create audio buffer from any `source` data or a number indicating `length`, pass
 
 | Type | Interpretation |
 |---|---|
-| `null` | Blank 0-length buffer. |
+| `null` | Blank 1-sample length buffer. |
 | `Number` | Length of resulting buffer. |
 | `Array` of arrays | Every subarray is considered as channel data. |
 | `AudioBuffer` | Clone other AudioBuffer. |
@@ -56,7 +56,7 @@ Create audio buffer from any `source` data or a number indicating `length`, pass
 
 | Property | Default | Meaning |
 |---|---|---|
-| `length` | `0` | Resulting buffer length. |
+| `length` | `1` | Resulting buffer length. |
 | `context` | [`audio-context`](https://github.com/audiojs/audio-context) | Audio context to bind. `null`-context creates unbound audio buffer. |
 | `channels`, `numberOfChannels` | `1` | Created buffer number of channels. |
 | `sampleRate` | `44100` | Created buffer sample rate. |
