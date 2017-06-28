@@ -55,6 +55,7 @@ module.exports = function createBuffer (source, options) {
 	else if (isAudioBuffer(source)) {
 		length = source.length
 		if (channels == null) channels = source.numberOfChannels
+		if (sampleRate == null) sampleRate = source.sampleRate
 
 		if (source._channelData) {
 			data = source._channelData.slice(0, channels)

@@ -348,12 +348,24 @@ t('from raw string', t => {
 
 t('from audiobuffer strip channels', t => {
 	let a = createBuffer(1, 3)
-
 	let b = createBuffer(a, 2)
 
 	t.equal(a.numberOfChannels, 3)
 	t.equal(b.numberOfChannels, 2)
 	t.equal(b.length, 1)
+
+	t.end()
+})
+
+
+t.only('from audiobuffer save sample rate', t => {
+	let a = createBuffer(1, {channels: 3, sampleRate: 10000})
+	let b = createBuffer(a, 2)
+
+	t.equal(a.numberOfChannels, 3)
+	t.equal(b.numberOfChannels, 2)
+	t.equal(b.length, 1)
+	t.equal(b.sampleRate, 10000)
 
 	t.end()
 })
