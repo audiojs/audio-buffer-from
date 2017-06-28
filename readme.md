@@ -40,7 +40,7 @@ var abuf7 = createBuffer('AAAAAAAAAAAAAIA/AACAPw==', 'float32 stereo planar')
 
 Create audio buffer from any `source` data or a number indicating `length`, pass `options` to ensure output buffer parameters. A `channels` number or `format` string can be used to shorthand options argument.
 
-#### Source
+#### Source:
 
 | Type | Interpretation |
 |---|---|
@@ -62,12 +62,12 @@ Create audio buffer from any `source` data or a number indicating `length`, pass
 | `ndarray` | Create from [ndarray](https://npmjs.org/package/ndarray) instance. The `shape` property is considered as `[length, channels]`. |
 | `ndsamples` | Create from [ndsamples](https://npmjs.org/package/ndsamples) instance, similar to ndarray. |
 
-#### Options
+#### Options:
 
 | Property | Default | Meaning |
 |---|---|---|
 | `length` | `1` | Buffer length. If `0`, buffer is unbound from context.  |
-| `context` | [`audio-context`](https://github.com/audiojs/audio-context) | Audio context to bind. `null`-context creates unbound audio buffer. |
+| `context` | [`audio-context`](https://github.com/audiojs/audio-context) | Audio context to bind. `null`-context creates context-free audio buffer. |
 | `channels`, `numberOfChannels` | `1` | Buffer number of channels. |
 | `sampleRate` | `44100` | Buffer sample rate. |
 | `format` | `null` | Source pcm format string or object, see [audio-format](https://github.com/audio-format). If `null`, it will be detected from the `source`. |
@@ -78,3 +78,7 @@ Create audio buffer from any `source` data or a number indicating `length`, pass
 * [audio-buffer](https://github.com/audiojs/audio-buffer)
 * [audio-buffer-utils](https://github.com/audiojs/audio-buffer-utils)
 * [pcm-convert](https://github.com/audiojs/pcm-convert)
+
+## License
+
+© 2017 Dima Yv. MIT License
