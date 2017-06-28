@@ -46,18 +46,19 @@ Create audio buffer from any `source` data or a number indicating `length`, pass
 |---|---|
 | `null` | Blank 1-sample length buffer. |
 | `Number` | Length of resulting buffer. |
-| `Array` of arrays | Every subarray is considered as channel data. |
+| `Array` of `Arrays` | Every subarray is considered a channel data. |
 | `AudioBuffer` | Clone other AudioBuffer. |
-| `Object` | Create based on `length`, `channels` and `sampleRate` properties. |
-| `Array` of numbers | Raw data, interpreted by `dtype` and `interleaved` options, defaults to `float32`. |
+| `Object` | Create based on `length`, `channels`/`numberOfChannels` and `sampleRate` properties. |
+| `Array` of `Numbers` | Raw data, interpreted by `options.format`, defaults to `float64`. |
 | `Float32Array` | Raw `float32` data, amplitude range is `-1..+1`. |
 | `Float64Array` | Raw `float64` data, amplitude range is `-1..+1`. |
-| `Uint8Array` | Raw `uint8` data, amplitude range is `-128..+127`. |
-| `TypedArray` | Any other typed array, described by `options.format` argument (see [pcm-convert](https://github.com/audiojs/pcm-convert). |
+| `Int8Array` | Raw `int8` data, amplitude range is `-128..+127`. |
+| `Uint8Array` | Raw `uint8` data, amplitude range is `0..255`. |
+| `TypedArray` | Any other typed array, described by `options.format` argument (see [pcm-convert](https://github.com/audiojs/pcm-convert)). |
 | `ArrayBuffer` | Raw data, interpreted by `options.format`. |
 | `Buffer` | Raw data, interpreted by `options.format`. |
-| Base64 string | Data is decoded based on options and handled as `ArrayBuffer`. |
-| Data-URI string | Data is decoded based on options and handled as `ArrayBuffer`. |
+| `base64` string | [Base64](https://developer.mozilla.org/en/docs/Web/API/WindowBase64/Base64_encoding_and_decoding)-encoded data. |
+| `dataURI` string | [DataURI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) string. |
 | `ndarray` | Create from [ndarray](https://npmjs.org/package/ndarray) instance. The `shape` property is considered as `[length, channels]`. |
 | `ndsamples` | Create from [ndsamples](https://npmjs.org/package/ndsamples) instance, similar to ndarray. |
 
@@ -65,10 +66,10 @@ Create audio buffer from any `source` data or a number indicating `length`, pass
 
 | Property | Default | Meaning |
 |---|---|---|
-| `length` | `1` | Resulting buffer length. If `0`, buffer is unbound from context.  |
+| `length` | `1` | Buffer length. If `0`, buffer is unbound from context.  |
 | `context` | [`audio-context`](https://github.com/audiojs/audio-context) | Audio context to bind. `null`-context creates unbound audio buffer. |
-| `channels`, `numberOfChannels` | `1` | Output buffer number of channels. |
-| `sampleRate` | `44100` | Output buffer sample rate. |
+| `channels`, `numberOfChannels` | `1` | Buffer number of channels. |
+| `sampleRate` | `44100` | Buffer sample rate. |
 | `format` | `null` | Source pcm format string or object, see [audio-format](https://github.com/audio-format). If `null`, it will be detected from the `source`. |
 
 
