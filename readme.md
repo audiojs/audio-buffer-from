@@ -1,5 +1,7 @@
 # audio-buffer-from [![Build Status](https://travis-ci.org/audiojs/audio-buffer-from.svg?branch=master)](https://travis-ci.org/audiojs/audio-buffer-from) [![unstable](https://img.shields.io/badge/stability-unstable-green.svg)](http://github.com/badges/stability-badges)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/audiojs/audio-buffer-from.svg)](https://greenkeeper.io/)
+
 Create [AudioBuffer](https://github.com/audiojs/audio-buffer) from any source.
 
 ## Usage
