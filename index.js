@@ -57,7 +57,7 @@ module.exports = function createBuffer (source, options) {
 		if (channels == null) channels = source.numberOfChannels
 
 		if (source._channelData) {
-			data = source._channelData
+			data = source._channelData.slice(0, channels)
 		}
 		else {
 			data = []

@@ -344,3 +344,16 @@ t('from raw string', t => {
 
 	t.end()
 })
+
+
+t('from audiobuffer strip channels', t => {
+	let a = createBuffer(1, 3)
+
+	let b = createBuffer(a, 2)
+
+	t.equal(a.numberOfChannels, 3)
+	t.equal(b.numberOfChannels, 2)
+	t.equal(b.length, 1)
+
+	t.end()
+})
