@@ -6,17 +6,15 @@
 
 var AudioBuffer = require('audio-buffer')
 var isAudioBuffer = require('is-audio-buffer')
-var isBuffer = require('is-buffer')
 var isObj = require('is-plain-obj')
 var getContext = require('audio-context')
 var convert = require('pcm-convert')
-var extend = require('object-assign')
 var format = require('audio-format')
 var str2ab = require('string-to-arraybuffer')
 
 module.exports = function createBuffer (source, options) {
 
-	var length, data, channels, sampleRate, context, format
+	var length, data, channels, sampleRate, format
 
 	//src, channels
 	if (typeof options === 'number') {
