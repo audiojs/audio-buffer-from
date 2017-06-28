@@ -18,11 +18,19 @@ var abuf2 = createBuffer(1024, 2)
 //buffer from data with bound audio context
 var abuf3 = createBuffer(floatArray, {context: audioContext})
 
-//empty 0-length mono buffer
+//empty 1-sample mono buffer
 var abuf4 = createBuffer()
 
-//create buffer from pcm data
+//0-length no-context buffer
+
+//from pcm data
 var abuf5 = createBuffer(new Uint8Array([0, 0, 255, 255]), 'interleaved 96000')
+
+//from data-uri
+var abuf6 = createBuffer('data:application/octet-stream;base64,AP8A/w==', 'uint8')
+
+//from base64 string
+var abuf7 = createBuffer('AAAAAAAAAAAAAIA/AACAPw==', 'float32 stereo planar')
 ```
 
 ## API
@@ -56,11 +64,11 @@ Create audio buffer from any `source` data or a number indicating `length`, pass
 
 | Property | Default | Meaning |
 |---|---|---|
-| `length` | `1` | Resulting buffer length. |
+| `length` | `1` | Resulting buffer length. If `0`, buffer is unbound from context.  |
 | `context` | [`audio-context`](https://github.com/audiojs/audio-context) | Audio context to bind. `null`-context creates unbound audio buffer. |
-| `channels`, `numberOfChannels` | `1` | Created buffer number of channels. |
-| `sampleRate` | `44100` | Created buffer sample rate. |
-| `format` | `null` | Source pcm format, see [audio-format](https://github.com/audio-format). If `null`, it will be detected from the `source`. |
+| `channels`, `numberOfChannels` | `1` | Output buffer number of channels. |
+| `sampleRate` | `44100` | Output buffer sample rate. |
+| `format` | `null` | Source pcm format string or object, see [audio-format](https://github.com/audio-format). If `null`, it will be detected from the `source`. |
 
 
 ### Related

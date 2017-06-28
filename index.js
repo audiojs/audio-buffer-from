@@ -49,8 +49,8 @@ module.exports = function createBuffer (source, options) {
 	}
 
 	//empty buffer
-	if (!source) {
-		length = options.length || 0
+	if (source == null) {
+		length = options.length
 	}
 
 	//if audio buffer passed - create fast clone of it
@@ -116,8 +116,8 @@ module.exports = function createBuffer (source, options) {
 	}
 
 	//create buffer of proper length
-	var audioBuffer = new AudioBuffer(options.context === null ? null : options.context || getContext(), {
-		length: length || 1,
+	var audioBuffer = new AudioBuffer((options.context === null || length === 0) ? null : options.context || getContext(), {
+		length: length == null ? 1 : length,
 		numberOfChannels: channels || 1,
 		sampleRate: sampleRate || 44100
 	})

@@ -243,6 +243,15 @@ t('from object', t => {
 	t.end()
 })
 
+t('0-length buffer', t => {
+	let b = createBuffer(0, {context: {}})
+
+	t.equal(b.numberOfChannels, 1)
+	t.equal(b.length, 0)
+
+	t.end()
+})
+
 t('from dataURI', t => {
 	// let header = 'data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgA'
 
@@ -263,7 +272,7 @@ t('from dataURI', t => {
 
 	let uint8 = new Uint8Array([0, 255, 0, 255])
 	let uri = createUri('application/octet-stream', toString(uint8, 'base64'))
-
+console.log(uri)
 	let buf = createBuffer(uri, 'uint8 interleaved')
 
 	t.equal(buf.numberOfChannels, 2)
@@ -323,14 +332,14 @@ t('from raw string', t => {
 	t.deepEqual(buf.getChannelData(1), [1, 1])
 
 
-	let floats = new Float32Array([0, 0, 1, 1])
+	let floats = new Float32Array([-1, -1, 1, 1])
 	let uri2 = toString(floats.buffer, 'binary')
 
 	let buf2 = createBuffer(uri2, 'float32 planar')
 
 	t.equal(buf2.numberOfChannels, 2)
 	t.equal(buf2.length, 2)
-	t.deepEqual(buf2.getChannelData(0), [0, 0])
+	t.deepEqual(buf2.getChannelData(0), [-1, -1])
 	t.deepEqual(buf2.getChannelData(1), [1, 1])
 
 	t.end()
