@@ -24,17 +24,20 @@ var abuf4 = createBuffer()
 //0-length no-context buffer
 var abuf5 = createBuffer(0)
 
+//from duration
+var abuf6 = createBuffer({duration: 1})
+
 //from pcm data
-var abuf6 = createBuffer(new Uint8Array([0, 0, 255, 255]), 'interleaved 96000')
+var abuf7 = createBuffer(new Uint8Array([0, 0, 255, 255]), 'interleaved 96000')
 
 //from data-uri
-var abuf7 = createBuffer('data:application/octet-stream;base64,AP8A/w==', 'uint8')
+var abuf8 = createBuffer('data:application/octet-stream;base64,AP8A/w==', 'uint8')
 
 //from base64 string
-var abuf7 = createBuffer('AAAAAAAAAAAAAIA/AACAPw==', 'float32 stereo planar')
+var abuf9 = createBuffer('AAAAAAAAAAAAAIA/AACAPw==', 'float32 stereo planar')
 
 //from node Buffer
-var abuf8 = createBuffer(Buffer.from([0, 255, 0, 127]), 'interleaved')
+var abuf10 = createBuffer(Buffer.from([0, 255, 0, 127]), 'interleaved')
 ```
 
 ## API
