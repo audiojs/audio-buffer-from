@@ -34,6 +34,7 @@ module.exports = function createBuffer (source, options) {
 		}
 	}
 
+	if (options.dtype) options.format = options.dtype
 
 	//detect options
 	channels = options.channels || options.numberOfChannels || options.channelCount
@@ -48,7 +49,11 @@ module.exports = function createBuffer (source, options) {
 
 	//empty buffer
 	if (source == null) {
-		length = options.length
+		if (options.duration != null) {
+			if (!sampleRate) sampleRate = 44100
+			length = sampleRate*options.duration
+		}
+		else length = options.length
 	}
 
 	//if audio buffer passed - create fast clone of it
