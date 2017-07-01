@@ -16,6 +16,7 @@
     "dsp",
     "web-audio-api",
     "audio-buffer",
+    "create audio buffer",
     "pcm"
   ],
   "author": "Dima Yv <df.creative@gmail.com>",
