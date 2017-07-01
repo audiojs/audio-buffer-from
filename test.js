@@ -359,7 +359,7 @@ t('from audiobuffer strip channels', t => {
 })
 
 
-t.only('from audiobuffer save sample rate', t => {
+t('from audiobuffer save sample rate', t => {
 	let a = createBuffer(1, {channels: 3, sampleRate: 10000})
 	let b = createBuffer(a, 2)
 
@@ -378,6 +378,14 @@ t('from audio-buffer-list', t => {
 
 	t.equal(ab.length, 100)
 	t.equal(ab.numberOfChannels, 2)
+
+	t.end()
+})
+
+t('from object with duration', t => {
+	let a = createBuffer({duration: .5, channels: 2})
+
+	t.equal(a.length, 22050)
 
 	t.end()
 })

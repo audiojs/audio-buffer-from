@@ -53,7 +53,7 @@ Create audio buffer from any `source` data or a number indicating `length`, pass
 | `AudioBuffer` | Clone other AudioBuffer. |
 | `AudioBufferList` | Coalesce [AudioBufferList](https://github.com/audiojs/audio-buffer-list) to AudioBuffer. |
 | `Audio` | Retrieve AudioBuffer from [Audio](https://github.com/audiojs/audio). |
-| `Object` | Create based on `length`, `channels`/`numberOfChannels` and `sampleRate` properties. |
+| `Object` | Create based on `length`/`duration`, `channels`/`numberOfChannels` and `sampleRate` properties. |
 | `Array` of `Numbers` | Raw data, interpreted by `options.format`, defaults to `float64`. |
 | `Float32Array` | Raw `float32` data, amplitude range is `-1..+1`. |
 | `Float64Array` | Raw `float64` data, amplitude range is `-1..+1`. |
