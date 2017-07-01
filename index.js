@@ -108,8 +108,8 @@ module.exports = function createBuffer (source, options) {
 			source = str2ab(source)
 		}
 
-		if (!format) format = {}
-		if (!channels) channels = 1
+		if (!format) format = getFormat(source)
+		if (!channels) channels = format.channels || 1
 		source = convert(source, format, 'float32 planar')
 
 		length = Math.floor(source.length / channels);

@@ -9,6 +9,7 @@ const atob = require('atob-lite')
 const encode = require('wav-encoder').encode
 const createUri = require('create-data-uri')
 const toString = require('arraybuffer-to-string')
+const AudioBufferList = require('audio-buffer-list')
 
 t('from ndarray', t => {
 	let a = ndarray(new Float32Array([0, 1, 1, 0]), [2, 2])
@@ -366,6 +367,17 @@ t.only('from audiobuffer save sample rate', t => {
 	t.equal(b.numberOfChannels, 2)
 	t.equal(b.length, 1)
 	t.equal(b.sampleRate, 10000)
+
+	t.end()
+})
+
+t('from audio-buffer-list', t => {
+	let a = AudioBufferList(100, {channels: 2})
+
+	let ab = createBuffer(a)
+
+	t.equal(ab.length, 100)
+	t.equal(ab.numberOfChannels, 2)
 
 	t.end()
 })
