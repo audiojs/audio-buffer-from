@@ -241,6 +241,12 @@ t('from object', t => {
 	t.equal(b5.numberOfChannels, 2)
 
 
+	let b6 = createBuffer(null, {channels: 3, length: 5})
+
+	t.equal(b6.length, 5)
+	t.equal(b6.numberOfChannels, 3)
+
+
 	t.end()
 })
 
@@ -386,6 +392,16 @@ t('from object with duration', t => {
 	let a = createBuffer({duration: .5, channels: 2})
 
 	t.equal(a.length, 22050)
+
+	let b = createBuffer({duration: 0, channels: 2})
+
+	t.equal(b.length, 0)
+
+
+	let c = createBuffer(null, {duration: 0, channels: 2})
+
+	t.equal(c.length, 0)
+
 
 	t.end()
 })
