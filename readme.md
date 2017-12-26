@@ -72,13 +72,13 @@ Create audio buffer from any `source` data or a number indicating `length`, pass
 
 #### Options:
 
-| Property | Default | Meaning |
-|---|---|---|
-| `length` | `1` | Buffer length. If `0`, buffer is unbound from context.  |
-| `context` | [`audio-context`](https://github.com/audiojs/audio-context) | Audio context to bind. `null`-context creates context-free audio buffer. |
-| `channels`, `numberOfChannels` | `1` | Buffer number of channels. |
-| `sampleRate` | `44100` | Buffer sample rate. |
-| `format` | `null` | Source pcm format string or object, see [audio-format](https://github.com/audio-format). If `null`, it will be detected from the `source`. |
+Property | Default | Meaning
+|---|---|---
+`length` | `1` | Buffer length. If `0`, buffer is unbound from context.
+`context` | [`audio-context`](https://github.com/audiojs/audio-context) | Audio context to bind. `null`-context creates context-free audio buffer.
+`channels`, `numberOfChannels` | `1` | Buffer number of channels.
+`sampleRate`, `rate` | `44100` | Buffer sample rate.
+`format` | `null` | Source pcm format string or object, see [audio-format](https://github.com/audio-format). If `null`, it will be detected from the `source`.
 
 
 ### Related
@@ -89,4 +89,4 @@ Create audio buffer from any `source` data or a number indicating `length`, pass
 
 ## License
 
-© 2017 Dima Yv. MIT License
+© 2017 Dmitry Yv. MIT License

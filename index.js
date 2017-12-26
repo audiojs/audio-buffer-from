@@ -11,10 +11,10 @@ var getContext = require('audio-context')
 var convert = require('pcm-convert')
 var format = require('audio-format')
 var str2ab = require('string-to-arraybuffer')
+var pick = require('pick-by-alias')
 
 module.exports = function createBuffer (source, options) {
-
-	var length, data, channels, sampleRate, format
+	var length, data, channels, sampleRate, format, c, l
 
 	//src, channels
 	if (typeof options === 'number') {
@@ -34,11 +34,17 @@ module.exports = function createBuffer (source, options) {
 		}
 	}
 
-	if (options.dtype) options.format = options.dtype
+	options = pick(options, {
+		format: 'format type dtype',
+		channels: 'channel channels numberOfChannels channelCount',
+		sampleRate: 'sampleRate rate',
+		length: 'length size',
+		duration: 'duration time'
+	})
 
 	//detect options
-	channels = options.channels || options.numberOfChannels || options.channelCount
-	sampleRate = options.sampleRate || options.rate
+	channels = options.channels
+	sampleRate = options.sampleRate
 	if (options.format) format = getFormat(options.format)
 
 	if (format) {
@@ -68,7 +74,7 @@ module.exports = function createBuffer (source, options) {
 		else {
 			data = []
 
-			for (var c = 0, l = channels; c < l; c++) {
+			for (c = 0, l = channels; c < l; c++) {
 				data[c] = source.getChannelData(c)
 			}
 		}
@@ -85,7 +91,7 @@ module.exports = function createBuffer (source, options) {
 		length = source[0].length;
 		data = []
 		if (!channels) channels = source.length
-		for (var c = 0; c < channels; c++) {
+		for (c = 0; c < channels; c++) {
 			data[c] = source[c] instanceof Float32Array ? source[c] : new Float32Array(source[c])
 		}
 	}
@@ -114,7 +120,7 @@ module.exports = function createBuffer (source, options) {
 
 		length = Math.floor(source.length / channels);
 		data = []
-		for (var c = 0; c < channels; c++) {
+		for (c = 0; c < channels; c++) {
 			data[c] = source.subarray(c * length, (c + 1) * length);
 		}
 	}
@@ -128,7 +134,7 @@ module.exports = function createBuffer (source, options) {
 
 	//fill channels
 	if (data) {
-		for (var c = 0, l = data.length; c < l; c++) {
+		for (c = 0, l = data.length; c < l; c++) {
 			audioBuffer.getChannelData(c).set(data[c]);
 		}
 	}
