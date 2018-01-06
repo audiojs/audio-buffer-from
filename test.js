@@ -402,6 +402,9 @@ t('from object with duration', t => {
 
 	t.equal(c.length, 0)
 
+	let d = createBuffer(null, {duration: 0.005, channels: 2})
+
+	t.equal(d.length, 221)
 
 	t.end()
 })

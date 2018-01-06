@@ -35,7 +35,7 @@ module.exports = function createBuffer (source, options) {
 	}
 
 	options = pick(options, {
-		format: 'format type dtype',
+		format: 'format type dtype dataType',
 		channels: 'channel channels numberOfChannels channelCount',
 		sampleRate: 'sampleRate rate',
 		length: 'length size',
@@ -57,7 +57,7 @@ module.exports = function createBuffer (source, options) {
 	if (source == null) {
 		if (options.duration != null) {
 			if (!sampleRate) sampleRate = 44100
-			length = sampleRate*options.duration
+			length = sampleRate * options.duration
 		}
 		else length = options.length
 	}
