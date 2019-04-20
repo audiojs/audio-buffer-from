@@ -30,7 +30,7 @@
     "audio-context": "^1.0.1",
     "audio-format": "^2.0.0",
     "is-audio-buffer": "^1.0.11",
-    "is-plain-obj": "^1.1.0",
+    "is-plain-obj": "^2.0.0",
     "pcm-convert": "^1.6.0",
     "pick-by-alias": "^1.2.0",
     "string-to-arraybuffer": "^1.0.0"
