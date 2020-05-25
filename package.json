@@ -43,7 +43,7 @@
     "ndarray": "^1.0.18",
     "ndsamples": "^1.0.0",
     "object-assign": "^4.1.1",
-    "tape": "^4.6.3",
+    "tape": "^5.0.1",
     "wav-encoder": "^1.1.0"
   }
 }
