@@ -78,7 +78,7 @@ Property | Default | Meaning
 `context` | [`audio-context`](https://github.com/audiojs/audio-context) | Audio context to bind. `null`-context creates context-free audio buffer.
 `channels`, `numberOfChannels` | `1` | Buffer number of channels.
 `sampleRate`, `rate` | `44100` | Buffer sample rate.
-`format` | `null` | Source pcm format string or object, see [audio-format](https://github.com/audio-format). If `null`, it will be detected from the `source`.
+`format` | `null` | Source pcm format string or object, see [audio-format](https://github.com/audiojs/audio-format). If `null`, it will be detected from the `source`.
 
 
 ### Related
